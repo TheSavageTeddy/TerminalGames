@@ -1,4 +1,4 @@
-import os, re, time
+import os, re, time, random
 
 try:
     height = int(re.search("(\d+)\)", str(os.get_terminal_size())).group(1))-1 #the terminal needs -1 because uh
@@ -24,13 +24,16 @@ except OSError:
 #        ┃
 #        ┃
 #        ●
-#
+#        ✡
+#        ·
 
 
 speed = 0.4
+starx = random.randint(1, width)
+stary = random.randint(1, height)
 
 while True:
     for i in range(0, height):
-        print("."*width)
+        print("·"*width)
 
     time.sleep(speed)
