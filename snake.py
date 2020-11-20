@@ -24,8 +24,8 @@ except OSError:
 
 
 speed = 0.4
-starx = random.randint(1, width)
-stary = random.randint(1, height)
+starx = random.randint(0, width)
+stary = random.randint(0, height)
 
 px = round(width/2)
 py = round(height/2)
