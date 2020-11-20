@@ -27,8 +27,8 @@ speed = 0.4
 starx = random.randint(0, width)
 stary = random.randint(0, height)
 
-px = round(width/2)
-py = round(height/2)
+px = round(width/2)-1
+py = round(height/2)-1
 plength = 1
 pdir = "right" #possible dir: right left up down
 
@@ -42,9 +42,9 @@ while True:
                 else:
                     print("·"*(width-starx) + "✡" + "·"*(((width-(width-px)-1))-px)+"●"+"·"*(((width-(width-px)-1))-px))
             else:
-                print("·"*(width-starx) + "✡" + "·"*(width-(width-starx)-1))
+                print("·"*(width-(width-starx)-1) + "✡" + "·"*(width-starx))
         elif i == py:
-            print("·"*(width-px) + "●" + "·"*(width-(width-px)-1))
+            print("·"*(width-(width-px)-1) + "●" + "·"*(width-px))
         else:
             print("·"*width)
     print(starx, stary, px, py)
