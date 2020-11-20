@@ -18,13 +18,6 @@ except OSError:
 #    ┗
 #    ┓
 #    ┏
-#    ●
-#
-#    SNAKE EXAMPLE
-#
-#    ━━━━━━┓
-#        ┃
-#        ┃
 #        ●
 #        ✡
 #        ·
