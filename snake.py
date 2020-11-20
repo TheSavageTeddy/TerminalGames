@@ -34,8 +34,26 @@ pdir = "right" #possible dir: right left up down
 
 
 #key detection
-keyboard.on_press_key("w", lambda _:pdir = "up")
+def wkey(x):
+    global pdir
+    pdir = "up"
 
+def akey(x):
+    global pdir
+    pdir = "left"
+
+def skey(x):
+    global pdir
+    pdir = "down"
+
+def dkey(x):
+    global pdir
+    pdir = "right"
+
+keyboard.on_press_key("w", wkey) #cant use lambda because cannot contain assignment
+keyboard.on_press_key("a", akey)
+keyboard.on_press_key("s", skey)
+keyboard.on_press_key("d", dkey)
 
 while True:
     if px == starx & py == stary: #if they are on star
@@ -54,9 +72,9 @@ while True:
         if i == stary:
             if i == py:
                 if starx > px:
-                    print("·"*(width-px) + "●" + "·"*(starx - px)+"✡"+"·"*(width-starx-2))
+                    print("·"*(width-(width-px)-1) + "●" + "·"*(starx - px - 1)+"✡"+"·"*(width-starx))
                 else:
-                    print("·"*(width-starx) + "✡" + "·"*(((width-(width-px)-1))-px)+"●"+"·"*(((width-(width-px)-1))-px))
+                    print("·"*(width-(width-starx)-1) + "✡" + "·"*(px - starx - 1)+"●"+"·"*(width - px))
             else:
                 print("·"*(width-(width-starx)-1) + "✡" + "·"*(width-starx))
         elif i == py:
