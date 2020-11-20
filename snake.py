@@ -23,7 +23,7 @@ except OSError:
 #        ·
 
 
-speed = 0.4
+speed = 0.3
 starx = random.randint(0, width)
 stary = random.randint(0, height)
 
@@ -33,10 +33,23 @@ plength = 1
 pdir = "right" #possible dir: right left up down
 
 
+#key detection
+keyboard.on_press_key("w", lambda _:pdir = "up")
+
+
 while True:
-    if px == starx && py == stary:
+    if px == starx & py == stary: #if they are on star
         plength = plength + 1
-        
+    
+    if pdir == "right":
+        px = px + 1
+    elif pdir == "left":
+        px = px - 1
+    elif pdir == "up":
+        py = py - 1 #up is closer to top and y is from top not bottom
+    elif pdir == "down":
+        py = py + 1
+
     for i in range(0, height):
         if i == stary:
             if i == py:
@@ -50,7 +63,8 @@ while True:
             print("·"*(width-(width-px)-1) + "●" + "·"*(width-px))
         else:
             print("·"*width)
-    print(starx, stary, px, py)
+
+    #print(starx, stary, px, py)
 
     time.sleep(speed)
     
