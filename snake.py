@@ -34,6 +34,9 @@ pdir = "right" #possible dir: right left up down
 
 
 while True:
+    if px == starx && py == stary:
+        plength = plength + 1
+        
     for i in range(0, height):
         if i == stary:
             if i == py:
