@@ -22,6 +22,7 @@ except OSError:
 #        ✡
 #        ·
 
+snakearray = []
 
 speed = 0.1
 starx = random.randint(0, width)
@@ -102,5 +103,11 @@ while True:
 
     # print(starx, stary, px, py)
 
+    # half speed when upwards because text
+    '''
+    if pdir == "up" or pdir == "down":
+        time.sleep(speed/(7/17))
+    else:
+        time.sleep(speed)
+    '''
     time.sleep(speed)
-    
