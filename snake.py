@@ -23,7 +23,7 @@ except OSError:
 #        ·
 
 
-speed = 0.3
+speed = 0.01
 starx = random.randint(0, width)
 stary = random.randint(0, height)
 
@@ -36,19 +36,23 @@ pdir = "right" #possible dir: right left up down
 #key detection
 def wkey(x):
     global pdir
-    pdir = "up"
+    if not pdir == "down": #cant go straight opposite dir
+        pdir = "up"
 
 def akey(x):
     global pdir
-    pdir = "left"
+    if not pdir == "right":
+        pdir = "left"
 
 def skey(x):
     global pdir
-    pdir = "down"
+    if not pdir == "up":
+        pdir = "down"
 
 def dkey(x):
     global pdir
-    pdir = "right"
+    if not pdir == "left":
+        pdir = "right"
 
 keyboard.on_press_key("w", wkey) #cant use lambda because cannot contain assignment
 keyboard.on_press_key("a", akey)
@@ -66,6 +70,12 @@ while True:
         py = py - 1 #up is closer to top and y is from top not bottom
     elif pdir == "down":
         py = py + 1
+    
+    #when goes off boundary
+    if px > width-1 and pdir == "right":
+        px = 1
+    if px < 1 and pdir == "left":
+        px = width
 
     if px == starx and py == stary: #if they are on star
         plength = plength + 1
