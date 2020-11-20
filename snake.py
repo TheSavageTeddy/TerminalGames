@@ -23,7 +23,7 @@ except OSError:
 #        ·
 
 
-speed = 0.01
+speed = 0.1
 starx = random.randint(0, width)
 stary = random.randint(0, height)
 
@@ -72,10 +72,14 @@ while True:
         py = py + 1
     
     #when goes off boundary
-    if px > width-1 and pdir == "right":
+    if px > width: #right
         px = 1
-    if px < 1 and pdir == "left":
+    if px < 1: #left
         px = width
+    if py > height-1: #down
+        py = 0
+    if py < 0: #up
+        py = height
 
     if px == starx and py == stary: #if they are on star
         plength = plength + 1
