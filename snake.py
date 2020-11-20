@@ -56,8 +56,7 @@ keyboard.on_press_key("s", skey)
 keyboard.on_press_key("d", dkey)
 
 while True:
-    if px == starx & py == stary: #if they are on star
-        plength = plength + 1
+
     
     if pdir == "right":
         px = px + 1
@@ -67,6 +66,11 @@ while True:
         py = py - 1 #up is closer to top and y is from top not bottom
     elif pdir == "down":
         py = py + 1
+
+    if px == starx and py == stary: #if they are on star
+        plength = plength + 1
+        starx = random.randint(0, width)
+        stary = random.randint(0, height)
 
     for i in range(0, height):
         if i == stary:
@@ -82,7 +86,7 @@ while True:
         else:
             print("·"*width)
 
-    #print(starx, stary, px, py)
+    # print(starx, stary, px, py)
 
     time.sleep(speed)
     
