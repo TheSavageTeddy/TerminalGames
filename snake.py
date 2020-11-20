@@ -1,4 +1,4 @@
-import os, re, time, random, keyboard
+import os, re, time, random, keyboard, math
 
 os.system("stty -echo") #makes text entered in terminal invisible
 
@@ -27,12 +27,27 @@ speed = 0.4
 starx = random.randint(1, width)
 stary = random.randint(1, height)
 
+px = round(width/2)
+py = round(height/2)
+plength = 1
+pdir = "right" #possible dir: right left up down
+
+
 while True:
     for i in range(0, height):
         if i == stary:
-            print("·"*(width-starx) + "✡" + "·"*(width-(width-starx)-1))
+            if i == py:
+                if starx > px:
+                    print("·"*(width-px) + "●" + "·"*(starx - px)+"✡"+"·"*(width-starx-2))
+                else:
+                    print("·"*(width-starx) + "✡" + "·"*(((width-(width-px)-1))-px)+"●"+"·"*(((width-(width-px)-1))-px))
+            else:
+                print("·"*(width-starx) + "✡" + "·"*(width-(width-starx)-1))
+        elif i == py:
+            print("·"*(width-px) + "●" + "·"*(width-(width-px)-1))
         else:
             print("·"*width)
+    print(starx, stary, px, py)
 
     time.sleep(speed)
     
