@@ -25,6 +25,7 @@ except OSError: #if not ran in terminal
 #        ·
 
 snakearray = []
+stop = False
 
 speed = 0.1
 starx = random.randint(0, width)
@@ -57,10 +58,15 @@ def dkey(x):
     if not pdir == "left":
         pdir = "right"
 
+def ekey(x):
+    global stop
+    stop = True
+
 keyboard.on_press_key("w", wkey) #cant use lambda because cannot contain assignment
 keyboard.on_press_key("a", akey)
 keyboard.on_press_key("s", skey)
 keyboard.on_press_key("d", dkey)
+keyboard.on_press_key("e", ekey)
 
 while True:
 
@@ -112,4 +118,6 @@ while True:
     else:
         time.sleep(speed)
     '''
+    if stop == True:
+        exit()
     time.sleep(speed)
