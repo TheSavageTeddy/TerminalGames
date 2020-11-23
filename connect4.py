@@ -7,9 +7,14 @@ try:
     width = int(re.search("(\d+),", str(os.get_terminal_size())).group(1))
 except OSError: #if not ran in terminal
     print("This game should be played in the terminal.")
-    height = 15
-    width = 15
+    time.sleep(2)
+    height = 14
+    width = 30
     # exit()
+
+if height < 14 or width < 30:
+    print("The terminal size should be 30x14 (width x height)")
+    time.sleep(2)
 
 #
 #    ASCII
@@ -41,7 +46,7 @@ P1 - ●
 P2 - ○
 '''
 
-'''
+'''29x13
   ━╋━━━━━━━━━━━━━━━━━━━━━╋━  1
    ┃ ·  ·  ·  ·  ·  ·  · ┃   2
    ┃ ·  ·  ·  ·  ·  ·  · ┃   3
@@ -72,9 +77,22 @@ def keyleft(x):
         cursor = cursor - 1
     update = 1
 
+def place(x):
+    for i in range(0, 7):
+        
+
+
+
+
+    if turn == 1:
+        turn = 2
+    else:
+        turn = 1
+
 
 keyboard.on_press_key("right arrow", keyright)
 keyboard.on_press_key("left arrow", keyleft)
+keyboard.on_press_key("space", place)
 
 array = [
     ["0", "0", "0", "0", "0", "0", "0"],
@@ -90,10 +108,12 @@ array = [
 cursor = 1 #cursor or arrow position
 turn = 1 # 1 - player 1's turn, etc
 update = 0 # need to update??
+xoffset = " "*(math.floor((width - 29) / 2))
+yoffset = math.floor((height - 13) / 2)-1
 
 def printline(x):
     if x == 1 or x == 8:
-        print("  ━╋━━━━━━━━━━━━━━━━━━━━━╋━")
+        print(xoffset + "  ━╋━━━━━━━━━━━━━━━━━━━━━╋━")
     elif x >= 2 and x <= 7:
         line = [' ', ' ', ' ', '┃', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', '┃', ' ']
         fline = []
@@ -104,22 +124,26 @@ def printline(x):
                 count = count+1
             else:
                 fline.append(line[i])
-        print("".join(fline))
+        print(xoffset + "".join(fline))
     elif x == 10:
-        print("  "+"   "*cursor+"▲")
+        print(xoffset + "  "+"   "*cursor+"▲")
     elif x == 9:
-        print("     1  2  3  4  5  6  7")
+        print(xoffset + "     1  2  3  4  5  6  7")
     else:
         if turn == 1:
-            print("\nP1 - ● (P1's turn)\nP2 - ○")
+            print("\n"+xoffset+"P1 - ● (P1's turn)"+"\n"+xoffset+"P2 - ○")
         else:
-            print("\nP1 - ● (P2's turn)\nP2 - ○")
+            print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
         
 
 
 while True:
+    for i in range(0, yoffset):
+        print("\n")
     for i in range(1, 12):
         printline(i)
+    for i in range(0, yoffset):
+        print("\n")
         
     update = 0
     while update == 0:
