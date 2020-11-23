@@ -75,10 +75,12 @@ def printline(x):
     if x == 1 or x == 8:
         print("  ━╋━━━━━━━━━━━━━━━━━━━━━╋━")
     elif x >= 2 and x <= 7:
-        line = "   ┃ ·  ·  ·  ·  ·  ·  · ┃ "
-        for i in range(0, 7):
-            line = re.sub("(·)", array[x-2][i].replace("0", "·").replace("1", "●").replace("2", "○"), line, count=1, flags=0);
-        print(line)
+        line = [' ', ' ', ' ', '┃', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', '┃', ' ']
+        fline = []
+        for i in range(0, len(line)):
+            if line[i] == "·":
+                fline.append(re.sub("(·)", array[x-2][i].replace("0", "·").replace("1", "●").replace("2", "○"), line[i], count=1, flags=0))
+        print("".join(line))
     elif x == 10:
         print("  "+"   "*cursor+"▲")
     elif x == 9:
