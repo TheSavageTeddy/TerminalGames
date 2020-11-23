@@ -56,6 +56,25 @@ P1 - ●
 P2 - ○
 '''
 
+#Key listners and actions
+
+def keyright(x):
+    global cursor, update
+    
+    if cursor < 7:
+        cursor = cursor + 1
+    update = 1
+
+def keyleft(x):
+    global cursor, update
+
+    if cursor > 1:
+        cursor = cursor - 1
+    update = 1
+
+
+keyboard.on_press_key("right arrow", keyright)
+keyboard.on_press_key("left arrow", keyleft)
 
 array = [
     ["0", "0", "0", "0", "0", "0", "0"],
@@ -70,6 +89,7 @@ array = [
 # 2 - player 2
 cursor = 1 #cursor or arrow position
 turn = 1 # 1 - player 1's turn, etc
+update = 0 # need to update??
 
 def printline(x):
     if x == 1 or x == 8:
@@ -100,5 +120,9 @@ def printline(x):
 while True:
     for i in range(1, 12):
         printline(i)
-    break
+        
+    update = 0
+    while update == 0:
+        pass
+
     
