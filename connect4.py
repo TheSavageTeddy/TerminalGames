@@ -68,7 +68,7 @@ array = [
 # 0 - nothing
 # 1 - player 1
 # 2 - player 2
-cursor = 1
+cursor = 5
 #cursor or arrow position
 
 def printline(x):
@@ -80,12 +80,11 @@ def printline(x):
             line = re.sub("(·)", array[x-2][i].replace("0", "·").replace("1", "●").replace("2", "○"), line, count=1, flags=0);
         print(line)
     elif x == 10:
-        line = "e"
-        print(line)
+        print("  "+"   "*cursor+"▲")
     elif x == 9:
         print("     1  2  3  4  5  6  7")
     else:
-        print("P1 - ●\nP2 - ○")
+        print("\nP1 - ●\nP2 - ○")
         
 
 
