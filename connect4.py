@@ -68,8 +68,8 @@ array = [
 # 0 - nothing
 # 1 - player 1
 # 2 - player 2
-cursor = 5
-#cursor or arrow position
+cursor = 1 #cursor or arrow position
+turn = 1 # 1 - player 1's turn, etc
 
 def printline(x):
     if x == 1 or x == 8:
@@ -84,7 +84,10 @@ def printline(x):
     elif x == 9:
         print("     1  2  3  4  5  6  7")
     else:
-        print("\nP1 - ●\nP2 - ○")
+        if turn == 1:
+            print("\nP1 - ● (P1's turn)\nP2 - ○")
+        else:
+            print("\nP1 - ● (P2's turn)\nP2 - ○")
         
 
 
