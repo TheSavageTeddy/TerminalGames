@@ -79,8 +79,7 @@ def keyleft(x):
 
 def place(x):
     for i in range(0, 7):
-        
-
+        pass
 
 
 
