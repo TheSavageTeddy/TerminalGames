@@ -41,7 +41,7 @@ P1 - ●
 P2 - ○
 '''
 
-grid = '''
+'''
 
   ━╋━━━━━━━━━━━━━━━━━━━━━╋━
    ┃ ·  ·  ·  ·  ·  ·  · ┃
@@ -56,8 +56,13 @@ grid = '''
 P1 - ●
 P2 - ○
 '''
+
+def printline():
+    
+
+
 frame = 1/30 #30 fps
 
 while True:
-    print(grid)
+    printline()
     
