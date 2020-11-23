@@ -77,10 +77,14 @@ def printline(x):
     elif x >= 2 and x <= 7:
         line = [' ', ' ', ' ', '┃', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', ' ', '·', ' ', '┃', ' ']
         fline = []
+        count = 0
         for i in range(0, len(line)):
             if line[i] == "·":
-                fline.append(re.sub("(·)", array[x-2][i].replace("0", "·").replace("1", "●").replace("2", "○"), line[i], count=1, flags=0))
-        print("".join(line))
+                fline.append(re.sub("(·)", array[x-2][count].replace("0", "·").replace("1", "●").replace("2", "○"), line[i], count=1, flags=0))
+                count = count+1
+            else:
+                fline.append(line[i])
+        print("".join(fline))
     elif x == 10:
         print("  "+"   "*cursor+"▲")
     elif x == 9:
