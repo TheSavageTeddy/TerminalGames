@@ -97,16 +97,24 @@ def keyleft(x):
     update = 1
 
 def place(x):
-    for i in range(0, 6):
-        if array[5-i][cursor-1] == "0":
-            array[5-i][cursor-1] = turn.replace("1", "●").replace("2", "○")
-            break
-        print(i)
+    global turn, array, cursor, update
+    
+    if not array[0][cursor-1] == "0": #if the thing isnt full
+        for i in range(0, 6):
+            if array[5-i][cursor-1] == "0":
+                array[5-i][cursor-1] = str(turn).replace("1", "●").replace("2", "○")
+                break
+            if i == 6:
+                no = True
+                break
 
-    if turn == 1:
-        turn = 2
-    else:
-        turn = 1
+        if turn == 1:
+            turn = 2
+        else:
+            turn = 1
+        update = 1
+
+    
 
 
 keyboard.on_press_key("right arrow", keyright)
@@ -142,11 +150,11 @@ def printline(x):
 # main thing
 
 while True:
-    for i in range(0, yoffset):
+    for i in range(0, yoffset+2):
         print("\n")
     for i in range(1, 12):
         printline(i)
-    for i in range(0, yoffset):
+    for i in range(0, yoffset-2):
         print("\n")
         
     update = 0
