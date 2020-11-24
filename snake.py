@@ -68,6 +68,23 @@ keyboard.on_press_key("s", skey)
 keyboard.on_press_key("d", dkey)
 keyboard.on_press_key("e", ekey)
 
+
+def printthing():
+    for i in range(0, height):
+        if i == stary:
+            if i == py:
+                if starx > px:
+                    print("·"*(width-(width-px)-1) + "●" + "·"*(starx - px - 1)+"✡"+"·"*(width-starx))
+                else:
+                    print("·"*(width-(width-starx)-1) + "✡" + "·"*(px - starx - 1)+"●"+"·"*(width - px))
+            else:
+                print("·"*(width-(width-starx)-1) + "✡" + "·"*(width-starx))
+        elif i == py:
+            print("·"*(width-(width-px)-1) + "●" + "·"*(width-px))
+        else:
+            print("·"*width)
+
+
 while True:
 
     
@@ -95,19 +112,8 @@ while True:
         starx = random.randint(0, width)
         stary = random.randint(0, height)
 
-    for i in range(0, height):
-        if i == stary:
-            if i == py:
-                if starx > px:
-                    print("·"*(width-(width-px)-1) + "●" + "·"*(starx - px - 1)+"✡"+"·"*(width-starx))
-                else:
-                    print("·"*(width-(width-starx)-1) + "✡" + "·"*(px - starx - 1)+"●"+"·"*(width - px))
-            else:
-                print("·"*(width-(width-starx)-1) + "✡" + "·"*(width-starx))
-        elif i == py:
-            print("·"*(width-(width-px)-1) + "●" + "·"*(width-px))
-        else:
-            print("·"*width)
+    printthing()
+    
 
     # print(starx, stary, px, py)
 
