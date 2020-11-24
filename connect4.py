@@ -13,7 +13,7 @@ except OSError: #if not ran in terminal
     # exit()
 
 if height < 14 or width < 30:
-    print("The terminal size should be 30x14 (width x height)")
+    print("The terminal size should be at least 30x14 (width x height)")
     time.sleep(2)
 
 #
@@ -112,8 +112,17 @@ def place(x):
             turn = 2
         else:
             turn = 1
+        checkwin()
         update = 1
 
+def checkwin():
+    global array, update
+    
+    #vertical
+    for i in range(0, 3):
+        for ii in range(0, 7):
+            if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "1111":
+                print("Player 1 wins")
     
 
 
