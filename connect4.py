@@ -71,8 +71,7 @@ array = [
     ["0", "0", "0", "0", "0", "0", "0"],
 ]
 # 0 - nothing
-# 1 - player 1
-# 2 - player 2
+
 cursor = 1 #cursor or arrow position
 turn = 1 # 1 - player 1's turn, etc
 update = 0 # need to update??
@@ -118,6 +117,7 @@ def place(x):
 def checkwin():
     global array, update
     
+    print("checking")
     #vertical
     for i in range(0, 3):
         for ii in range(0, 7):
