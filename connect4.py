@@ -89,8 +89,20 @@ def checkwin():
                 print("Player 2 wins")
     
     # diagonal (left up to right down)
+    for i in range(0, 4):
+        for ii in range(0, 3):
+            if array[ii][i] + array[ii+1][i+1] + array[ii+2][i+2] + array[ii+3][i+3] == "●●●●":
+                print("Player 1 wins")
+            if array[ii][i] + array[ii+1][i+1] + array[ii+2][i+2] + array[ii+3][i+3] == "○○○○":
+                print("Player 2 wins")
+
     # diagonal (right up to left down)
-    
+    for i in range(0, 4):
+        for ii in range(0, 3):
+            if array[5-ii][i] + array[4-ii][i+1] + array[3-ii][i+2] + array[2-ii][i+3] == "●●●●":
+                print("Player 1 wins")
+            if array[5-ii][i] + array[4-ii][i+1] + array[3-ii][i+2] + array[2-ii][i+3] == "○○○○":
+                print("Player 2 wins")
 
 
 keyboard.on_press_key("right arrow", keyright)
