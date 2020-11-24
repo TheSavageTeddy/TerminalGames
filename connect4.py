@@ -16,51 +16,6 @@ if height < 14 or width < 30:
     print("The terminal size should be at least 30x14 (width x height)")
     time.sleep(2)
 
-#
-#    ASCII
-#
-#    ┃
-#    ━
-#    ┛
-#    ┗
-#    ┓
-#    ┏
-# ┣ ╋ ━ ┫
-#┗ ┻ ━ ┛
-#┏ ┳ ━ ┓
-
-'''
-GRID
-
-  ━╋━━━━━━━━━━━━━━━━━━━━━╋━
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-   ┃ ·  ·  ·  ·  ·  ·  · ┃
-  ━╋━━━━━━━━━━━━━━━━━━━━━╋━
-     1  2  3  4  5  6  7
-
-P1 - ●
-P2 - ○
-'''
-
-'''29x13
-  ━╋━━━━━━━━━━━━━━━━━━━━━╋━  1
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   2
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   3
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   4
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   5
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   6
-   ┃ ·  ·  ·  ·  ·  ·  · ┃   7
-  ━╋━━━━━━━━━━━━━━━━━━━━━╋━  8
-     1  2  3  4  5  6  7     9
-                             10
-P1 - ●
-P2 - ○
-'''
-
 #variables and lists
 array = [
     ["0", "0", "0", "0", "0", "0", "0"],
@@ -116,13 +71,25 @@ def place(x):
 
 def checkwin():
     global array, update
-    
-    print("checking")
+
     #vertical
     for i in range(0, 3):
         for ii in range(0, 7):
-            if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "1111":
+            if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "●●●●":
                 print("Player 1 wins")
+            if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "○○○○":
+                print("Player 2 wins")
+    
+    #horizontal
+    for i in range(0, 4):
+        for ii in range(0, 6):
+            if array[ii][i] + array[ii][i+1] + array[ii][i+2] + array[ii][i+3] == "●●●●":
+                print("Player 1 wins")
+            if array[ii][i] + array[ii][i+1] + array[ii][i+2] + array[ii][i+3] == "○○○○":
+                print("Player 2 wins")
+    
+    # diagonal (left up to down right)
+    # diagonal (left up to down right)
     
 
 
