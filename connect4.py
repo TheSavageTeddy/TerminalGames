@@ -61,6 +61,25 @@ P1 - ●
 P2 - ○
 '''
 
+#variables and lists
+array = [
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+]
+# 0 - nothing
+# 1 - player 1
+# 2 - player 2
+cursor = 1 #cursor or arrow position
+turn = 1 # 1 - player 1's turn, etc
+update = 0 # need to update??
+xoffset = " "*(math.floor((width - 29) / 2))
+yoffset = math.floor((height - 13) / 2)-1
+
+
 #Key listners and actions
 
 def keyright(x):
@@ -78,10 +97,11 @@ def keyleft(x):
     update = 1
 
 def place(x):
-    for i in range(0, 7):
-        pass
-
-
+    for i in range(0, 6):
+        if array[5-i][cursor-1] == "0":
+            array[5-i][cursor-1] = turn.replace("1", "●").replace("2", "○")
+            break
+        print(i)
 
     if turn == 1:
         turn = 2
@@ -93,22 +113,7 @@ keyboard.on_press_key("right arrow", keyright)
 keyboard.on_press_key("left arrow", keyleft)
 keyboard.on_press_key("space", place)
 
-array = [
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-    ["0", "0", "0", "0", "0", "0", "0"],
-]
-# 0 - nothing
-# 1 - player 1
-# 2 - player 2
-cursor = 1 #cursor or arrow position
-turn = 1 # 1 - player 1's turn, etc
-update = 0 # need to update??
-xoffset = " "*(math.floor((width - 29) / 2))
-yoffset = math.floor((height - 13) / 2)-1
+
 
 def printline(x):
     if x == 1 or x == 8:
@@ -134,7 +139,7 @@ def printline(x):
         else:
             print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
         
-
+# main thing
 
 while True:
     for i in range(0, yoffset):
