@@ -84,6 +84,9 @@ def printthing():
         else:
             print("·"*width)
 
+def checkwin():
+    pass
+
 
 while True:
 
