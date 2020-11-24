@@ -99,7 +99,7 @@ def keyleft(x):
 def place(x):
     global turn, array, cursor, update
     
-    if not array[0][cursor-1] == "0": #if the thing isnt full
+    if array[0][cursor-1] == "0": #if the thing isnt full
         for i in range(0, 6):
             if array[5-i][cursor-1] == "0":
                 array[5-i][cursor-1] = str(turn).replace("1", "●").replace("2", "○")
