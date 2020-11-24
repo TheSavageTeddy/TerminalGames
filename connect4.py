@@ -88,8 +88,8 @@ def checkwin():
             if array[ii][i] + array[ii][i+1] + array[ii][i+2] + array[ii][i+3] == "○○○○":
                 print("Player 2 wins")
     
-    # diagonal (left up to down right)
-    # diagonal (left up to down right)
+    # diagonal (left up to right down)
+    # diagonal (right up to left down)
     
 
 
