@@ -170,7 +170,7 @@ def printline(x):
                 print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
         else:
             print("\n"+xoffset+"    ★ Player "+str(win)+" has won ★"+"\n"+xoffset+" Press space to play again!")
-        
+
 # main thing
 
 while True:
@@ -184,3 +184,4 @@ while True:
     update = 0
     while update == 0:
         pass
+
