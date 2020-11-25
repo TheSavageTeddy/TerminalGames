@@ -146,7 +146,7 @@ def printline(x):
             else:
                 print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
         else:
-            print("\n"+xoffset+"★ Player 1 has won ★"+"\n"+"")
+            print("\n"+xoffset+"    ★ Player "+str(win)+" has won ★"+"\n"+xoffset+" Press space to play again!")
         
 # main thing
 
