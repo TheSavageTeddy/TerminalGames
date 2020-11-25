@@ -22,10 +22,11 @@ if height < 14 or width < 30:
     print("The terminal size should be at least 30x14 (width x height)")
     time.sleep(2)
 
+
 '''
-━╋━━━━━━━━━╋━
- ┃ ·  ·  · ┃
- ┃ ·  ·  · ┃
- ┃ ·  ·  · ┃
-━╋━━━━━━━━━╋━
+ · ┃ · ┃ ·
+━━━╋━━━╋━━━
+ · ┃ · ┃ ·
+━━━╋━━━╋━━━
+ · ┃ · ┃ ·
 '''
