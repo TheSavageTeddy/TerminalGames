@@ -1,6 +1,9 @@
-import os, re, time, random, keyboard, math
+import os, re, time, random, keyboard, math, platform
 
-os.system("stty -echo") #makes text entered in terminal invisible
+if platform.system() == "Windows":
+    pass
+else:
+    os.system("stty -echo") #makes text entered in terminal invisible
 
 try:
     height = int(re.search("(\d+)\)", str(os.get_terminal_size())).group(1))-1 #the terminal needs -1 because uh
