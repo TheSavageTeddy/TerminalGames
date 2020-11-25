@@ -86,7 +86,7 @@ def reset():
     ["0", "0", "0", "0", "0", "0", "0"],
     ]
     turn = 1
-    cursor = 1
+    cursor = 0
 
 def checkwin():
     global array, update, win
