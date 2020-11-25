@@ -32,6 +32,7 @@ turn = 1 # 1 - player 1's turn, etc
 update = 0 # need to update??
 xoffset = " "*(math.floor((width - 29) / 2))
 yoffset = math.floor((height - 13) / 2)-1
+win = 0
 
 
 #Key listners and actions
@@ -69,6 +70,7 @@ def place(x):
         checkwin()
         update = 1
 
+
 def checkwin():
     global array, update
 
@@ -76,33 +78,41 @@ def checkwin():
     for i in range(0, 3):
         for ii in range(0, 7):
             if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "●●●●":
-                print("Player 1 wins")
+                win = 1
+                break
             if array[i][ii] + array[i+1][ii] + array[i+2][ii] + array[i+3][ii] == "○○○○":
-                print("Player 2 wins")
+                win = 2
+                break
     
     #horizontal
     for i in range(0, 4):
         for ii in range(0, 6):
             if array[ii][i] + array[ii][i+1] + array[ii][i+2] + array[ii][i+3] == "●●●●":
-                print("Player 1 wins")
+                win = 1
+                break
             if array[ii][i] + array[ii][i+1] + array[ii][i+2] + array[ii][i+3] == "○○○○":
-                print("Player 2 wins")
+                win = 2
+                break
     
     # diagonal (left up to right down)
     for i in range(0, 4):
         for ii in range(0, 3):
             if array[ii][i] + array[ii+1][i+1] + array[ii+2][i+2] + array[ii+3][i+3] == "●●●●":
-                print("Player 1 wins")
+                win = 1
+                break
             if array[ii][i] + array[ii+1][i+1] + array[ii+2][i+2] + array[ii+3][i+3] == "○○○○":
-                print("Player 2 wins")
+                win = 2
+                break
 
     # diagonal (right up to left down)
     for i in range(0, 4):
         for ii in range(0, 3):
             if array[5-ii][i] + array[4-ii][i+1] + array[3-ii][i+2] + array[2-ii][i+3] == "●●●●":
-                print("Player 1 wins")
+                win = 1
+                break
             if array[5-ii][i] + array[4-ii][i+1] + array[3-ii][i+2] + array[2-ii][i+3] == "○○○○":
-                print("Player 2 wins")
+                win = 2
+                break
 
 
 keyboard.on_press_key("right arrow", keyright)
