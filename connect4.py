@@ -54,22 +54,39 @@ def keyleft(x):
 def place(x):
     global turn, array, cursor, update
     
-    if array[0][cursor-1] == "0": #if the thing isnt full
-        for i in range(0, 6):
-            if array[5-i][cursor-1] == "0":
-                array[5-i][cursor-1] = str(turn).replace("1", "●").replace("2", "○")
-                break
-            if i == 6:
-                no = True
-                break
+    if win == 0:
+        if array[0][cursor-1] == "0": #if the thing isnt full
+            for i in range(0, 6):
+                if array[5-i][cursor-1] == "0":
+                    array[5-i][cursor-1] = str(turn).replace("1", "●").replace("2", "○")
+                    break
+                if i == 6:
+                    no = True
+                    break
 
-        if turn == 1:
-            turn = 2
-        else:
-            turn = 1
-        checkwin()
+            if turn == 1:
+                turn = 2
+            else:
+                turn = 1
+            checkwin()
+            update = 1
+    else:
+        reset()
         update = 1
 
+def reset():
+    global array, turn, win
+    win = 0
+    array = [
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ["0", "0", "0", "0", "0", "0", "0"],
+    ]
+    turn = 1
+    cursor = 1
 
 def checkwin():
     global array, update, win
