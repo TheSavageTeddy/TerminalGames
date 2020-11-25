@@ -72,7 +72,7 @@ def place(x):
 
 
 def checkwin():
-    global array, update
+    global array, update, win
 
     #vertical
     for i in range(0, 3):
@@ -140,10 +140,13 @@ def printline(x):
     elif x == 9:
         print(xoffset + "     1  2  3  4  5  6  7")
     else:
-        if turn == 1:
-            print("\n"+xoffset+"P1 - ● (P1's turn)"+"\n"+xoffset+"P2 - ○")
+        if win == 0:
+            if turn == 1:
+                print("\n"+xoffset+"P1 - ● (P1's turn)"+"\n"+xoffset+"P2 - ○")
+            else:
+                print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
         else:
-            print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
+            print("\n"+xoffset+"★ Player 1 has won ★"+"\n"+"")
         
 # main thing
 
@@ -158,5 +161,3 @@ while True:
     update = 0
     while update == 0:
         pass
-
-    
