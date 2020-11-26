@@ -40,7 +40,15 @@ def printboard(x):
         print("    ━━━╋━━━╋━━━")
     if x == 0 or x == 2 or x == 4:
         thing = [' ', ' ', ' ', ' ', ' ', '·', ' ', '┃', ' ', '·', ' ', '┃', ' ', '·']
-        print("")
+        complete = ""
+        for i in range(0, len(thing)):
+            if i == 3 and cursory == ((x+2)/2)-1:
+                complete = complete + "►"
+            else:
+                complete = complete + thing[i]
+        print(complete)
+
 
 while True:
-    print('''''')
+    for i in range(0, 6):
+        printboard(i)
