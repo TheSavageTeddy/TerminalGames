@@ -37,6 +37,44 @@ if height < 6 or width < 15:
 
 cursorx = 1
 cursory = 1
+update = 0
+
+# key detection
+
+def keyright(x):
+    global cursorx, update
+    
+    if cursorx < 2:
+        cursorx = cursorx + 1
+    update = 1
+
+def keyleft(x):
+    global cursorx, update
+    
+    if cursorx > 0:
+        cursorx = cursorx - 1
+    update = 1
+
+def keyup(x):
+    global cursory, update
+    
+    if cursory > 0:
+        cursory = cursory - 1
+    update = 1
+
+def keydown(x):
+    global cursory, update
+    
+    if cursory < 2:
+        cursory = cursory + 1
+    update = 1
+
+
+
+keyboard.on_press_key("right arrow", keyright)
+keyboard.on_press_key("left arrow", keyleft)
+keyboard.on_press_key("up arrow", keyup)
+keyboard.on_press_key("down arrow", keydown)
 
 def printboard(x):
     if x == 1 or x == 3:
@@ -57,4 +95,6 @@ def printboard(x):
 while True:
     for i in range(0, 6):
         printboard(i)
-    break
+    update = 0
+    while update == 0:
+        pass
