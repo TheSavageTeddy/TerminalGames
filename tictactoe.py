@@ -18,8 +18,8 @@ except OSError: #if not ran in terminal
     width = 30
     # exit()
 
-if height < 14 or width < 30:
-    print("The terminal size should be at least 30x14 (width x height)")
+if height < 6 or width < 15:
+    print("The terminal size should be at least 15x6 (width x height)")
     time.sleep(2)
 
 
@@ -30,10 +30,13 @@ if height < 14 or width < 30:
     ━━━╋━━━╋━━━  3
      · ┃ · ┃ ·   4
      ▲           5
+                 6
+    P1           7
+    P2           8
 '''
 
-cursorx = 0
-cursory = 0
+cursorx = 1
+cursory = 1
 
 def printboard(x):
     if x == 1 or x == 3:
@@ -47,8 +50,11 @@ def printboard(x):
             else:
                 complete = complete + thing[i]
         print(complete)
+    if x == 5:
+        print("     "+"    "*cursorx+"▲")
 
 
 while True:
     for i in range(0, 6):
         printboard(i)
+    break
