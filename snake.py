@@ -68,10 +68,10 @@ def ekey(x):
     global stop
     stop = True
 
-keyboard.on_press_key("w", wkey) #cant use lambda because cannot contain assignment
-keyboard.on_press_key("a", akey)
-keyboard.on_press_key("s", skey)
-keyboard.on_press_key("d", dkey)
+keyboard.on_press_key("up arrow", wkey) #cant use lambda because cannot contain assignment
+keyboard.on_press_key("left arrow", akey)
+keyboard.on_press_key("down arrow", skey)
+keyboard.on_press_key("right arrow", dkey)
 keyboard.on_press_key("e", ekey)
 
 
