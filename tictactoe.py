@@ -18,8 +18,8 @@ except OSError: #if not ran in terminal
     width = 30
     # exit()
 
-if height < 6 or width < 15:
-    print("The terminal size should be at least 15x6 (width x height)")
+if height < 9 or width < 15:
+    print("The terminal size should be at least 15x9 (width x height)")
     time.sleep(2)
 
 
@@ -38,6 +38,12 @@ if height < 6 or width < 15:
 cursorx = 1
 cursory = 1
 update = 0
+grid = [
+    ["0", "0", "0"],
+    ["0", "0", "0"],
+    ["0", "0", "0"]
+]
+player = 1
 
 # key detection
 
@@ -69,12 +75,18 @@ def keydown(x):
         cursory = cursory + 1
     update = 1
 
+def place(x):
+    global cursorx, cursory, update, player
+
+    grid[cursory][cursorx] = str(player)
+
 
 
 keyboard.on_press_key("right arrow", keyright)
 keyboard.on_press_key("left arrow", keyleft)
 keyboard.on_press_key("up arrow", keyup)
 keyboard.on_press_key("down arrow", keydown)
+keyboard.on_press_key("space", place)
 
 def printboard(x):
     if x == 1 or x == 3:
