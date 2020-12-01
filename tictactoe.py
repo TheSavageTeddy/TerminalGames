@@ -78,7 +78,15 @@ def keydown(x):
 def place(x):
     global cursorx, cursory, update, player
 
-    grid[cursory][cursorx] = str(player)
+    if grid[cursory][cursorx] == "0":
+        grid[cursory][cursorx] = str(player)
+
+        if player == 1:
+            player = 2
+        else:
+            player = 1
+        update = 1
+
 
 
 
@@ -94,9 +102,13 @@ def printboard(x):
     if x == 0 or x == 2 or x == 4:
         thing = [' ', ' ', ' ', ' ', ' ', '·', ' ', '┃', ' ', '·', ' ', '┃', ' ', '·']
         complete = ""
+        count = 0
         for i in range(0, len(thing)):
             if i == 3 and cursory == ((x+2)/2)-1:
                 complete = complete + "►"
+            elif thing[i] == "·":
+                complete = complete + grid[int(x/2)][count].replace("0", " ").replace("1", "o").replace("2", "x")
+                count = count + 1
             else:
                 complete = complete + thing[i]
         print(complete)
