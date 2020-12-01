@@ -77,6 +77,7 @@ def place(x):
             checkwin()
             update = 1
     else:
+
         reset()
         update = 1
 
