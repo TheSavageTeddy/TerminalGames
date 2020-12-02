@@ -60,7 +60,7 @@ def keyleft(x):
 def place(x):
     global turn, array, cursor, update
     
-    if win == 0:
+    if win == 0 and "0" in array[0]:
         if array[0][cursor-1] == "0": #if the thing isnt full
             for i in range(0, 6):
                 if array[5-i][cursor-1] == "0":
@@ -165,12 +165,15 @@ def printline(x):
         print(xoffset + "     1  2  3  4  5  6  7")
     else:
         if win == 0:
-            if turn == 1:
-                print("\n"+xoffset+"P1 - ● (P1's turn)"+"\n"+xoffset+"P2 - ○")
+            if "0" in array[0]:
+                if turn == 1:
+                    print("\n"+xoffset+"P1 - ● (P1's turn)"+"\n"+xoffset+"P2 - ○")
+                else:
+                    print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
             else:
-                print("\n"+xoffset+"P1 - ●"+"\n"+xoffset+"P2 - ○ (P2's turn)")
+                print("\n"+xoffset+"          Draw!"+"\n"+xoffset+" Press space to play again!")
         else:
-            print("\n"+xoffset+"    ★ Player "+str(win)+" has won ★"+"\n"+xoffset+" Press space to play again!")
+                print("\n"+xoffset+"    ★ Player "+str(win)+" has won ★"+"\n"+xoffset+" Press space to play again!")
 
 # main thing
 
