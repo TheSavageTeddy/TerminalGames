@@ -90,9 +90,14 @@ def printthing():
         else:
             print("·"*width)
 
-
-
-
+templist = []
+for i in range(0, height):
+    templist.clear()
+    for i in range(0, width):
+        templist.append("0")
+    snakearray.append(templist)
+    
+print(snakearray)
 while True:
 
     
