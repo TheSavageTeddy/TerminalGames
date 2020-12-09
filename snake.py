@@ -74,7 +74,7 @@ keyboard.on_press_key("down arrow", skey)
 keyboard.on_press_key("right arrow", dkey)
 keyboard.on_press_key("e", ekey)
 
-
+'''
 def printthing():
     for i in range(0, height):
         if i == stary:
@@ -89,15 +89,38 @@ def printthing():
             print("·"*(width-(width-px)-1) + "●" + "·"*(width-px))
         else:
             print("·"*width)
+'''
+
+def printarray():
+    global snakearray
+
+    for item in snakearray:
+        print(("".join(map(str, item[1:]))))
+
+def updatearray():
+    global snakearray
+
+    snakearray.clear()
+    templist = []
+    for i in range(0, height):
+        templist.clear()
+        for i in range(0, width):
+            templist.append("·")
+        snakearray.append(templist)
+
+    snakearray[stary][starx] = "✡"
+    snakearray[py][px] = "●"
+
 
 templist = []
 for i in range(0, height):
     templist.clear()
     for i in range(0, width):
-        templist.append("0")
+        templist.append("·")
     snakearray.append(templist)
     
 print(snakearray)
+printarray()
 while True:
 
     
@@ -125,7 +148,8 @@ while True:
         starx = random.randint(0, width)
         stary = random.randint(0, height)
 
-    printthing()
+    updatearray()
+    printarray()
     
 
     # print(starx, stary, px, py)
@@ -137,6 +161,7 @@ while True:
     else:
         time.sleep(speed)
     '''
+
     if stop == True:
         exit()
     time.sleep(speed)
