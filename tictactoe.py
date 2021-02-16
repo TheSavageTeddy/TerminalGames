@@ -44,6 +44,7 @@ grid = [
     ["0", "0", "0"]
 ]
 player = 1
+win = 0
 
 # key detection
 
@@ -85,9 +86,24 @@ def place(x):
             player = 2
         else:
             player = 1
+        checkwin()
         update = 1
+    
 
+def checkwin():
+    global win
+    for i in range(0, 2):
+        if "".join(grid[i]) == "111" or "".join(grid[i]) == "222":
+            win = grid[i][0]
+            break
+        if grid[0][i] + grid[1][i] + grid[2][i] == "111" or grid[0][i] + grid[1][i] + grid[2][i] =="222":
+            win = grid[0][i]
+            break
+    
+    if grid[0][0] + grid[1][1] + grid[2][2] == "111" or grid[0][0] + grid[1][1] + grid[2][2] == "222":
+        win = grid[0][i]
 
+    
 
 
 keyboard.on_press_key("right arrow", keyright)
@@ -111,7 +127,7 @@ def printboard(x):
                 count = count + 1
             else:
                 complete = complete + thing[i]
-        print(complete)
+        print(" "+complete)
     if x == 5:
         print("     "+"    "*cursorx+"▲")
 
