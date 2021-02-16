@@ -93,23 +93,18 @@ def printthing():
 
 def printarray():
     global snakearray
-
+    
+    count = 0
     for item in snakearray:
         print(("".join(map(str, item[1:]))))
+
 
 def updatearray():
     global snakearray
 
-    snakearray.clear()
-    templist = []
-    for i in range(0, height):
-        templist.clear()
-        for i in range(0, width):
-            templist.append("·")
-        snakearray.append(templist)
-
     snakearray[stary][starx] = "✡"
     snakearray[py][px] = "●"
+    print(snakearray)
 
 
 templist = []
@@ -122,7 +117,6 @@ for i in range(0, height):
 print(snakearray)
 printarray()
 while True:
-
     
     if pdir == "right":
         px = px + 1
