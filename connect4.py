@@ -34,6 +34,7 @@ array = [
 # 0 - nothing
 
 cursor = 1 #cursor or arrow position
+isexit = False
 turn = 1 # 1 - player 1's turn, etc
 update = 0 # need to update??
 xoffset = " "*(math.floor((width - 29) / 2))
@@ -56,6 +57,12 @@ def keyleft(x):
     if cursor > 1:
         cursor = cursor - 1
     update = 1
+
+def quitgame(x):
+    global isexit
+    isexit = True
+    update = 1
+    
 
 def place(x):
     global turn, array, cursor, update
@@ -142,6 +149,7 @@ def checkwin():
 keyboard.on_press_key("right arrow", keyright)
 keyboard.on_press_key("left arrow", keyleft)
 keyboard.on_press_key("space", place)
+keyboard.on_press_key("e", quitgame)
 
 
 
@@ -188,4 +196,6 @@ while True:
     update = 0
     while update == 0:
         pass
+    if isexit == True:
+        exit()
 
